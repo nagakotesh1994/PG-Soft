@@ -10,9 +10,17 @@ $messages = [
 
 
 $pages = [
-    'home_page' => 'index.php',
+    'home_page' => 'index.php', //ROOT PAGE TO LOAD OR HOME PAGE TO LOAD
     'login_page' => 'index.php',
     'logout_page' => 'logout.php'
+];
+
+
+$pages_titles = [
+    'home_page_title' => '<title>PG Soft | Log in</title>',
+    'login_page' => '',
+    'dashboard_page_title' => '<title>PG Soft | Dashboard</title>'
+
 ];
 
 
@@ -95,12 +103,16 @@ function Check_Login($FromData)
     $conn = DB_Connect();
     $FromData = Sanitize($FromData);
     extract($FromData);
-    $query = "SELECT * FROM `pg_table` WHERE (`email`='{$LoginId}' OR `phone`='{$LoginId}') AND `password`='{$password}'";
+    $query = "SELECT * FROM `pg_table` WHERE (`email`='{$LoginId}' OR `phone`='{$LoginId}') AND `password`='{$password}' AND `pg_id`={$pg_id}";
     $result = $conn->query($query);
 
 
     if ($result->num_rows == 1) {
+        
         $_SESSION['LoginId'] = $LoginId;
+        $row = mysqli_fetch_array($result);
+        $_SESSION['pg_name'] = $row['name'];
+        $_SESSION['pg_id'] = $row['pg_id'];
 
         return 0; //success message array index
     } else {

@@ -137,41 +137,53 @@
               </ul>
             </li> -->
 
-        <!-- <li class="nav-item">
+        <li class="nav-item">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="fas fa-hotel"></i>
                 <p>
-                  Charts
+                &nbsp;&nbsp;&nbsp; PG MANAGEMENT 
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="pages/charts/chartjs.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>ChartJS</p>
+                  <i class="fas fa-map-marked-alt"></i>
+                    <p>&nbsp;&nbsp;&nbsp;PG</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/charts/flot.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Flot</p>
+                  <i class="fas fa-building"></i>
+                    <p>&nbsp;&nbsp;&nbsp;BUILDING</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/charts/inline.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Inline</p>
+                  <i class="fas fa-walking"></i>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;FLOOR</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="pages/charts/uplot.html" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>uPlot</p>
+                  <i class="fas fa-swatchbook"></i>
+                    <p>&nbsp;&nbsp;&nbsp;ROOM TYPE</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/charts/uplot.html" class="nav-link">
+                  <i class="fas fa-fan"></i>
+                    <p>&nbsp;&nbsp;&nbsp;ROOM FACILITY</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/charts/uplot.html" class="nav-link">
+                  <i class="fas fa-person-booth"></i>
+                    <p>&nbsp;&nbsp;&nbsp;ROOMS</p>
                   </a>
                 </li>
               </ul>
-            </li> -->
+            </li>
 
         <!-- <li class="nav-item">
               <a href="#" class="nav-link">

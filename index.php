@@ -1,15 +1,13 @@
 <?php
 include 'DB.php';
-if(isset($_SESSION['LoginId']))
-{
+if (isset($_SESSION['LoginId'])) {
     echo "<script>window.location.href = 'Dashboard.php';</script>";
 }
 
 PG_Table();
 $conn = DB_Connect();
 
-if (isset($_REQUEST['submit']))
-{
+if (isset($_REQUEST['submit'])) {
     $status = Check_Login($_REQUEST);
 }
 ?>
@@ -19,7 +17,7 @@ if (isset($_REQUEST['submit']))
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PG Soft | Log in</title>
+    <?php echo $pages_titles['home_page_title']; ?>
     <?php include 'HeaderIncludes.php'; ?>
 </head>
 
@@ -35,6 +33,15 @@ if (isset($_REQUEST['submit']))
 
                 <form method="post">
                     <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="pg_id" id="pg_id" placeholder="your PG ID" autofocus>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group mb-3">
                         <input type="text" class="form-control" name="LoginId" id="LoginId" placeholder="Email / Phone No" autofocus>
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -42,6 +49,7 @@ if (isset($_REQUEST['submit']))
                             </div>
                         </div>
                     </div>
+
                     <div class="input-group mb-3">
                         <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                         <div class="input-group-append">
@@ -50,6 +58,7 @@ if (isset($_REQUEST['submit']))
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-8">
                             <div class="icheck-primary">
@@ -94,8 +103,8 @@ if (isset($_REQUEST['submit']))
 
     <?php if (isset($_REQUEST['submit'])) {
         echo $messages[$status];
-        if($status==0)
-        echo "<script>window.location.href = 'Dashboard.php';</script>";
+        if ($status == 0)
+            echo "<script>window.location.href = 'Dashboard.php';</script>";
     }
     ?>
 </body>
