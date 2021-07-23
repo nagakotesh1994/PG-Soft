@@ -1,10 +1,15 @@
+<?php 
+  include 'DB.php';
+  if(!isset($_SESSION['LoginId']))
+    echo "<script>window.location.href = {$pages['home_page']};</script>";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>PG Soft | Dashboard</title>
 
   <?php include 'HeaderIncludes.php'; ?>
 </head>

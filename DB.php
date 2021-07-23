@@ -8,6 +8,15 @@ $messages = [
     "<script>$('.toastrDefaultWarning').ready(function() {toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.') });</script>"  //4
 ];
 
+
+$pages = [
+    'home_page' => 'index.php',
+    'login_page' => 'index.php',
+    'logout_page' => 'logout.php'
+];
+
+
+
 //DB Connecting Function (Start)
 function DB_Connect()
 {
@@ -92,6 +101,7 @@ function Check_Login($FromData)
 
     if ($result->num_rows == 1) {
         $_SESSION['LoginId'] = $LoginId;
+
         return 0; //success message array index
     } else {
         return 1; // login fail message array index

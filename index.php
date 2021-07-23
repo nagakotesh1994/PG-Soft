@@ -9,7 +9,9 @@ PG_Table();
 $conn = DB_Connect();
 
 if (isset($_REQUEST['submit']))
+{
     $status = Check_Login($_REQUEST);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +19,7 @@ if (isset($_REQUEST['submit']))
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PG-Soft | Log in</title>
+    <title>PG Soft | Log in</title>
     <?php include 'HeaderIncludes.php'; ?>
 </head>
 
@@ -92,6 +94,8 @@ if (isset($_REQUEST['submit']))
 
     <?php if (isset($_REQUEST['submit'])) {
         echo $messages[$status];
+        if($status==0)
+        echo "<script>window.location.href = 'Dashboard.php';</script>";
     }
     ?>
 </body>
