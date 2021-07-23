@@ -7,7 +7,7 @@ $messages = [
     "<script>$('.toastrDefaultWarning').ready(function() {toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.') });</script>"  //4
 ];
 
-//DB Connecting Function Start
+//DB Connecting Function (Start)
 function DB_Connect()
 {
     $server_name = "localhost";
@@ -24,32 +24,38 @@ function DB_Connect()
         return $conn;
     }
 }
-//DB Connecting Function End
+//DB Connecting Function (End)
 
-//This Sanitize function is used for security Start
+//This Sanitize function is used for security (Start)
 function Sanitize($FromData)
 {
     $conn = DB_Connect();
 
     foreach ($FromData as $key => $value) {
+        if (is_array($value)) {
 
-        $key = strip_tags($key); // Remove HTML
-        $value = strip_tags($value); // Remove HTML
+            Sanitize($value);
 
-        $key = htmlspecialchars($key); // Convert characters
-        $value = htmlspecialchars($value); // Convert characters
+        } else {
 
-        $key = trim(rtrim(ltrim($key))); // Remove spaces
-        $value = trim(rtrim(ltrim($value))); // Remove spaces
+            $key = strip_tags($key); // Remove HTML
+            $value = strip_tags($value); // Remove HTML
 
-        $key = $conn->real_escape_string($key); // Prevent SQL Injection
-        $value = $conn->real_escape_string($value); // Prevent SQL Injection
+            $key = htmlspecialchars($key); // Convert characters
+            $value = htmlspecialchars($value); // Convert characters
 
-        $array[$key] = $value;
+            $key = trim(rtrim(ltrim($key))); // Remove spaces
+            $value = trim(rtrim(ltrim($value))); // Remove spaces
+
+            $key = $conn->real_escape_string($key); // Prevent SQL Injection
+            $value = $conn->real_escape_string($value); // Prevent SQL Injection
+
+            $array[$key] = $value;
+        }
     }
     return $array;
 }
-//This Sanitize function is used for security End
+//This Sanitize function is used for security (End)
 
 
 
@@ -65,8 +71,7 @@ function PG_Table()
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     address VARCHAR(1000) NOT NULL,
-    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-    )";
+    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)";
 
     if ($conn->query($query) === TRUE) {
         //echo "Table MyGuests created successfully";
@@ -86,7 +91,7 @@ function Check_Login($FromData)
 
 
     if ($result->num_rows == 1) {
-        $_SESSION['LoginId']= $LoginId;
+        $_SESSION['LoginId'] = $LoginId;
         return 0; //success message array index
     } else {
         return 1; // login fail message array index
