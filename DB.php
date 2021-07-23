@@ -1,4 +1,5 @@
 <?php
+session_start();
 $messages = [
     "<script>$('.toastrDefaultSuccess').ready(function() { toastr.success('Login Success.') }); </script>",                                         //0
     "<script>$('.toastrDefaultError').ready(function() {toastr.error('Incorrect Credentials.') });</script>",                                       //1
@@ -35,7 +36,6 @@ function Sanitize($FromData)
         if (is_array($value)) {
 
             Sanitize($value);
-
         } else {
 
             $key = strip_tags($key); // Remove HTML

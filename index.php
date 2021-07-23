@@ -1,10 +1,10 @@
 <?php
-session_start();
+include 'DB.php';
 if(isset($_SESSION['LoginId']))
 {
     echo "<script>window.location.href = 'Dashboard.php';</script>";
 }
-include 'DB.php';
+
 PG_Table();
 $conn = DB_Connect();
 
