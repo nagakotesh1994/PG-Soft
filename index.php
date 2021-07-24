@@ -102,9 +102,11 @@ if (isset($_REQUEST['submit'])) {
     <?php include 'FooterIncludes.php'; ?>
 
     <?php if (isset($_REQUEST['submit'])) {
-        echo $messages[$status];
-        if ($status == 0)
+        echo @$messages[$status];
+        $status;
+        if ($status == 0){
             echo "<script>window.location.href = 'Dashboard.php';</script>";
+        }
     }
     ?>
 </body>

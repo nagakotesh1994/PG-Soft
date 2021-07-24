@@ -1,8 +1,8 @@
 <?php
 session_start();
 $messages = [
+    "<script>$('.toastrDefaultError').ready(function() {toastr.error('Incorrect Credentials.') });</script>",
     "<script>$('.toastrDefaultSuccess').ready(function() { toastr.success('Login Success.') }); </script>",                                         //0
-    "<script>$('.toastrDefaultError').ready(function() {toastr.error('Incorrect Credentials.') });</script>",                                       //1
     "<script>$('.toastrDefaultInfo').ready(function() { toastr.info('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.') });</script>",      //2
     "<script>$('.toastrDefaultError').ready(function() {toastr.error('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.') });</script>",     //3
     "<script>$('.toastrDefaultWarning').ready(function() {toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.') });</script>"  //4
@@ -104,18 +104,24 @@ function Check_Login($FromData)
     $FromData = Sanitize($FromData);
     extract($FromData);
     $query = "SELECT * FROM `pg_table` WHERE (`email`='{$LoginId}' OR `phone`='{$LoginId}') AND `password`='{$password}' AND `pg_id`={$pg_id}";
+
     $result = $conn->query($query);
 
+    if ($result) {
+        if ($result->num_rows == 1) {
 
-    if ($result->num_rows == 1) {
-        
-        $_SESSION['LoginId'] = $LoginId;
-        $row = mysqli_fetch_array($result);
-        $_SESSION['pg_name'] = $row['name'];
-        $_SESSION['pg_id'] = $row['pg_id'];
+            $_SESSION['LoginId'] = $LoginId;
+            $row = mysqli_fetch_array($result);
+            $_SESSION['pg_name'] = $row['name'];
+            $_SESSION['pg_id'] = $row['pg_id'];
 
-        return 0; //success message array index
-    } else {
-        return 1; // login fail message array index
+            return 1; //success message array index
+        } else {
+            return 0; // login fail message array index
+        }
+    }
+    else
+    {
+        return 0; // login fail message array index
     }
 }

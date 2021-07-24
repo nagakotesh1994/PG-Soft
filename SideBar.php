@@ -147,39 +147,45 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="pages/charts/chartjs.html" class="nav-link">
+                  <a href="#" class="nav-link">
                   <i class="fas fa-map-marked-alt"></i>
                     <p>&nbsp;&nbsp;&nbsp;PG</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/charts/flot.html" class="nav-link">
+                  <a href="#" class="nav-link">
                   <i class="fas fa-building"></i>
                     <p>&nbsp;&nbsp;&nbsp;BUILDING</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/charts/inline.html" class="nav-link">
+                  <a href="#" class="nav-link">
                   <i class="fas fa-walking"></i>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;FLOOR</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/charts/uplot.html" class="nav-link">
+                  <a href="#" class="nav-link">
                   <i class="fas fa-swatchbook"></i>
                     <p>&nbsp;&nbsp;&nbsp;ROOM TYPE</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/charts/uplot.html" class="nav-link">
+                  <a href="#" class="nav-link">
                   <i class="fas fa-fan"></i>
                     <p>&nbsp;&nbsp;&nbsp;ROOM FACILITY</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="pages/charts/uplot.html" class="nav-link">
+                  <a href="#" class="nav-link">
                   <i class="fas fa-person-booth"></i>
                     <p>&nbsp;&nbsp;&nbsp;ROOMS</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                  <i class="fas fa-bed"></i>
+                    <p>&nbsp;&nbsp;&nbsp;BEDS</p>
                   </a>
                 </li>
               </ul>
