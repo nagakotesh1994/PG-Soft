@@ -103,8 +103,8 @@ if (isset($_REQUEST['submit'])) {
 
     <?php if (isset($_REQUEST['submit'])) {
         echo @$messages[$status];
-        $status;
-        if ($status == 0){
+        echo $status;
+        if ($status == 1){
             echo "<script>window.location.href = 'Dashboard.php';</script>";
         }
     }
