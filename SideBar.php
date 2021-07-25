@@ -66,15 +66,14 @@
               </ul>
             </li> -->
 
-        <!-- <li class="nav-item">
-              <a href="pages/widgets.html" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
-                  Widgets
-                  <span class="right badge badge-danger">New</span>
-                </p>
-              </a>
-            </li> -->
+        <li class="nav-item">
+          <a href="#" class="nav-link active">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Dashboard
+            </p>
+          </a>
+        </li>
 
         <!-- <li class="nav-item">
               <a href="#" class="nav-link">
@@ -138,58 +137,58 @@
             </li> -->
 
         <li class="nav-item">
-              <a href="#" class="nav-link">
-              <i class="fas fa-hotel"></i>
-                <p>
-                &nbsp;&nbsp;&nbsp; PG MANAGEMENT 
-                  <i class="right fas fa-angle-left"></i>
-                </p>
+          <a href="#" class="nav-link">
+            <i class="fas fa-hotel"></i>
+            <p>
+              &nbsp;&nbsp;&nbsp; PG MANAGEMENT
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="PG.php" class="nav-link">
+                <i class="fas fa-map-marked-alt"></i>
+                <p>&nbsp;&nbsp;&nbsp;PG</p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                  <i class="fas fa-map-marked-alt"></i>
-                    <p>&nbsp;&nbsp;&nbsp;PG</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                  <i class="fas fa-building"></i>
-                    <p>&nbsp;&nbsp;&nbsp;BUILDING</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                  <i class="fas fa-walking"></i>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;FLOOR</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                  <i class="fas fa-swatchbook"></i>
-                    <p>&nbsp;&nbsp;&nbsp;ROOM TYPE</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                  <i class="fas fa-fan"></i>
-                    <p>&nbsp;&nbsp;&nbsp;ROOM FACILITY</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                  <i class="fas fa-person-booth"></i>
-                    <p>&nbsp;&nbsp;&nbsp;ROOMS</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                  <i class="fas fa-bed"></i>
-                    <p>&nbsp;&nbsp;&nbsp;BEDS</p>
-                  </a>
-                </li>
-              </ul>
             </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-building"></i>
+                <p>&nbsp;&nbsp;&nbsp;BUILDING</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-walking"></i>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;FLOOR</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-swatchbook"></i>
+                <p>&nbsp;&nbsp;&nbsp;ROOM TYPE</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-fan"></i>
+                <p>&nbsp;&nbsp;&nbsp;ROOM FACILITY</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-person-booth"></i>
+                <p>&nbsp;&nbsp;&nbsp;ROOMS</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fas fa-bed"></i>
+                <p>&nbsp;&nbsp;&nbsp;BEDS</p>
+              </a>
+            </li>
+          </ul>
+        </li>
 
         <!-- <li class="nav-item">
               <a href="#" class="nav-link">
@@ -712,8 +711,8 @@
         </li> -->
 
         <li class="nav-item">
-          <a href="<?php echo $pages['logout_page']?>" class="nav-link">
-          <i class="fa fa-power-off" aria-hidden="true"></i>
+          <a href="<?php echo $pages['logout_page'] ?>" class="nav-link">
+            <i class="fa fa-power-off" aria-hidden="true"></i>
             <p>&nbsp;&nbsp;&nbsp;Logout</p>
           </a>
         </li>

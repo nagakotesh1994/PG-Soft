@@ -5,7 +5,9 @@ $messages = [
     "<script>$('.toastrDefaultSuccess').ready(function() { toastr.success('Login Success.') }); </script>",                                         //0
     "<script>$('.toastrDefaultInfo').ready(function() { toastr.info('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.') });</script>",      //2
     "<script>$('.toastrDefaultError').ready(function() {toastr.error('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.') });</script>",     //3
-    "<script>$('.toastrDefaultWarning').ready(function() {toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.') });</script>"  //4
+    "<script>$('.toastrDefaultWarning').ready(function() {toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.') });</script>",  //4
+    "<script>$('.toastrDefaultSuccess').ready(function() { toastr.success('PG saved Successfully.') }); </script>",                   //5
+    "<script>$('.toastrDefaultError').ready(function() {toastr.error('PG Not Saved.') });</script>", //6
 ];
 
 
@@ -76,19 +78,20 @@ function Sanitize($FromData)
 
 
 
-function PG_Table()
+function PG_Table_Users()
 {
     $conn = DB_Connect();
 
-    $query = "CREATE TABLE IF NOT EXISTS PG_Table (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    pg_id VARCHAR(255) NOT NULL,
-    name VARCHAR(255) NOT NULL,
-    phone VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    address VARCHAR(1000) NOT NULL,
-    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)";
+    $query = "CREATE TABLE IF NOT EXISTS PG_Table_Users (
+    `id` INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `pg_id` VARCHAR(255) NOT NULL,
+    `name` VARCHAR(255) NOT NULL,
+    `phone` VARCHAR(255) NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
+    `level` VARCHAR(255) NOT NULL,
+    `address` VARCHAR(1000) NOT NULL,
+    `reg_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)";
 
     if ($conn->query($query) === TRUE) {
         //echo "Table MyGuests created successfully";
@@ -119,9 +122,58 @@ function Check_Login($FromData)
         } else {
             return 0; // login fail message array index
         }
-    }
-    else
-    {
+    } else {
         return 0; // login fail message array index
+    }
+}
+
+function PG_Hostel_Create()
+{
+    $conn = DB_Connect();
+    $query = "CREATE TABLE IF NOT EXISTS PG_Hostel (
+        `id` INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        `PG_User_Id` VARCHAR(255) NOT NULL,
+        `PG_Hostel_Name` VARCHAR(255) NOT NULL,
+        `GST_No` VARCHAR(255) NOT NULL,
+        `PAN_NO` VARCHAR(255) NOT NULL,
+        `address` VARCHAR(1000) NOT NULL,
+        `status` VARCHAR(1000) DEFAULT 1,
+        reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)";
+    if ($conn->query($query) === TRUE) {
+        //echo "Table MyGuests created successfully";
+    } else {
+        echo "Error creating PG_Hostel table: " . $conn->error;
+    }
+}
+
+function PG_Hostel_Insert($FromData)
+{
+    $conn = DB_Connect();
+    PG_Hostel_Create();
+    $FromData = Sanitize($FromData);
+    extract($FromData);
+    $query = "INSERT INTO PG_Hostel (`PG_User_Id`, `PG_Hostel_Name`) VALUES ('{$_SESSION['pg_id']}','{$PG_Hostel_Name}')";
+    if ($conn->query($query) === TRUE) {
+        return 1;
+    } else {
+        echo "Error creating PG_Hostel table: " . $conn->error;
+        return 0;
+    }
+}
+
+function Get_PG_Hostel_Data()
+{
+    $conn = DB_Connect();
+    $query="SELECT * FROM `pg_hostel`";
+    $result = $conn->query($query);
+    $sno=1;
+    while($row=mysqli_fetch_array($result))
+    {
+        echo "<tr>  <td>{$sno}</td>
+                    <td>{$row['PG_Hostel_Name']}</td>
+                    <td> <button type='button' class='btn btn-outline-danger'>Delete</button> 
+                    <button type='button' class='btn btn-outline-secondary'>Disable</button></td>
+            </tr>";    
+        $sno++;
     }
 }

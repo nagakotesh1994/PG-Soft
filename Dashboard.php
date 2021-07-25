@@ -1,7 +1,7 @@
-<?php 
-  include 'DB.php';
-  if(!isset($_SESSION['LoginId']))
-    echo "<script>window.location.href = {$pages['home_page']};</script>";
+<?php
+include 'DB.php';
+if (!isset($_SESSION['LoginId']))
+  echo "<script>window.location.href = {$pages['home_page']};</script>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,12 +21,12 @@
     <div class="preloader flex-column justify-content-center align-items-center">
       <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
-    
+
     <!-- Navbar -->
-    <?php include 'NavBar.php';?>
+    <?php include 'NavBar.php'; ?>
 
     <!-- Main Sidebar Container -->
-    <?php include 'SideBar.php';?>
+    <?php include 'SideBar.php'; ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -116,13 +116,13 @@
           </div>
           <!-- /.row -->
           <!-- Main row -->
-          
+
         </div><!-- /.container-fluid -->
       </section>
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <?php include 'Footer.php';?>
+    <?php include 'Footer.php'; ?>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
