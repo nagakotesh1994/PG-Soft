@@ -4,7 +4,7 @@ if (isset($_SESSION['LoginId'])) {
     echo "<script>window.location.href = 'Dashboard.php';</script>";
 }
 
-PG_Table();
+PG_Table_Users();
 $conn = DB_Connect();
 
 if (isset($_REQUEST['submit'])) {

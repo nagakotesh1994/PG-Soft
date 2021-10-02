@@ -22,7 +22,6 @@ $pages_titles = [
     'home_page_title' => '<title>PG Soft | Log in</title>',
     'login_page' => '',
     'dashboard_page_title' => '<title>PG Soft | Dashboard</title>'
-
 ];
 
 
@@ -106,7 +105,7 @@ function Check_Login($FromData)
     $conn = DB_Connect();
     $FromData = Sanitize($FromData);
     extract($FromData);
-    $query = "SELECT * FROM `pg_table` WHERE (`email`='{$LoginId}' OR `phone`='{$LoginId}') AND `password`='{$password}' AND `pg_id`={$pg_id}";
+    $query = "SELECT * FROM `pg_table_users` WHERE (`email`='{$LoginId}' OR `phone`='{$LoginId}') AND `password`='{$password}' AND `pg_id`={$pg_id}";
 
     $result = $conn->query($query);
 
@@ -164,16 +163,17 @@ function PG_Hostel_Insert($FromData)
 function Get_PG_Hostel_Data()
 {
     $conn = DB_Connect();
-    $query="SELECT * FROM `pg_hostel`";
+    $query = "SELECT * FROM `pg_hostel`";
     $result = $conn->query($query);
-    $sno=1;
-    while($row=mysqli_fetch_array($result))
-    {
-        echo "<tr>  <td>{$sno}</td>
+    $sno = 1;
+    if ($result) {
+        while ($row = mysqli_fetch_array($result)) {
+            echo "<tr>  <td>{$sno}</td>
                     <td>{$row['PG_Hostel_Name']}</td>
                     <td> <button type='button' class='btn btn-outline-danger'>Delete</button> 
                     <button type='button' class='btn btn-outline-secondary'>Disable</button></td>
-            </tr>";    
-        $sno++;
+            </tr>";
+            $sno++;
+        }
     }
 }
