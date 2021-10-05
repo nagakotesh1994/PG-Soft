@@ -151,7 +151,7 @@
                 <p>&nbsp;&nbsp;&nbsp;PG</p>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="fas fa-building"></i>
                 <p>&nbsp;&nbsp;&nbsp;BUILDING</p>
@@ -180,9 +180,9 @@
                 <i class="fas fa-person-booth"></i>
                 <p>&nbsp;&nbsp;&nbsp;ROOMS</p>
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="Beds.php" class="nav-link">
                 <i class="fas fa-bed"></i>
                 <p>&nbsp;&nbsp;&nbsp;BEDS</p>
               </a>

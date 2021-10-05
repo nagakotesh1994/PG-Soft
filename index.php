@@ -1,5 +1,5 @@
 <?php
-include 'DB.php';
+include 'DB_OPR/DB.php';
 if (isset($_SESSION['LoginId'])) {
     echo "<script>window.location.href = 'Dashboard.php';</script>";
 }
@@ -103,7 +103,7 @@ if (isset($_REQUEST['submit'])) {
 
     <?php if (isset($_REQUEST['submit'])) {
         echo @$messages[$status];
-        echo $status;
+        //echo $status;
         if ($status == 1) {
             echo "<script>window.location.href = 'Dashboard.php';</script>";
         }

@@ -170,9 +170,67 @@ function Get_PG_Hostel_Data()
         while ($row = mysqli_fetch_array($result)) {
             echo "<tr>  <td>{$sno}</td>
                     <td>{$row['PG_Hostel_Name']}</td>
-                    <td> <button type='button' class='btn btn-outline-danger'>Delete</button> 
-                    <button type='button' class='btn btn-outline-secondary'>Disable</button></td>
-            </tr>";
+                    <td> <a href='DB_OPR/Delete.php?table=pg_hostel&id={$row['id']}&page=PG' class='btn btn-sm	 btn-outline-danger'>Delete</a>"; 
+                    if($row['status']=='1')
+                        echo "&nbsp;&nbsp; <a href='DB_OPR/ActiveInactive.php?table=pg_hostel&id={$row['id']}&page=PG&status=0' class='btn btn-sm	 btn-outline-secondary'>Inactive</a></td>";
+                    else 
+                    echo "&nbsp;&nbsp; <a href='DB_OPR/ActiveInactive.php?table=pg_hostel&id={$row['id']}&page=PG&status=1' class='btn btn-sm	 btn-outline-secondary'>Active</a></td>";
+                echo "</tr>"; 
+            $sno++;
+        }
+    }
+}
+
+function PG_Beds_Create()
+{
+    $conn = DB_Connect();
+    $query = "CREATE TABLE IF NOT EXISTS PG_Hostel_Beds (
+        `id` INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        `PG_User_Id` VARCHAR(255) NOT NULL,
+        `bed_no` VARCHAR(255) NOT NULL,
+        `PG_Hostel_Name` VARCHAR(255) NOT NULL,
+        `name` VARCHAR(255) NOT NULL,
+        `status` VARCHAR(1000) DEFAULT 1,
+        reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)";
+    if ($conn->query($query) === TRUE) {
+        //echo "Table MyGuests created successfully";
+    } else {
+        echo "Error creating PG_Hostel table: " . $conn->error;
+    }
+}
+
+
+function PG_Beds_Insert($FromData)
+{
+    $conn = DB_Connect();
+    PG_Beds_Create();
+    $FromData = Sanitize($FromData);
+    extract($FromData);
+    $query = "INSERT INTO PG_Hostel_Beds (`PG_User_Id`,`bed_no`, `PG_Hostel_Name`,`name`)   
+                             VALUES ('{$_SESSION['pg_id']}','{$m_roomno}','{$m_name}','{$m_guest_name}')";
+    if ($conn->query($query) === TRUE) {
+        return 1;
+    } else {
+        echo "Error creating PG_Hostel table: " . $conn->error;
+        return 0;
+    }
+}
+
+
+
+function Get_PG_Hostel_Beds_Data()
+{
+    $conn = DB_Connect();
+    $query = "SELECT * FROM `pg_hostel_beds`";
+    $result = $conn->query($query);
+    $sno = 1;
+    if ($result) {
+        while ($row = mysqli_fetch_array($result)) {
+            echo "<tr>  <td>{$sno}</td>
+                    <td>{$row['PG_Hostel_Name']}</td>
+                    <td>{$row['name']}</td>
+                    <td>{$row['bed_no']}</td>
+                </tr>"; 
             $sno++;
         }
     }

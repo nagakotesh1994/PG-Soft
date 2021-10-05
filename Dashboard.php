@@ -1,5 +1,5 @@
 <?php
-include 'DB.php';
+include 'DB_OPR/DB.php';
 if (!isset($_SESSION['LoginId']))
   echo "<script>window.location.href = {$pages['home_page']};</script>";
 ?>

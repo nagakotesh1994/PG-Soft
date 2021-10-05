@@ -1,5 +1,5 @@
 <?php
-include 'DB.php';
+include 'DB_OPR/DB.php';
 if (!isset($_SESSION['LoginId']))
     echo "<script>window.location.href = {$pages['home_page']};</script>";
 if (isset($_REQUEST['submit'])) {
@@ -60,57 +60,45 @@ if (isset($_REQUEST['submit'])) {
                         <!-- left column -->
                         <div class="col-md-12">
 
-                            <!-- Horizontal Form -->
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Create PG Hostel</h3>
-                                </div>
-                                <!-- /.card-header -->
 
-                                <!--  Modal starting -->
-                                <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Default Modal</h4>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">×</span>
-                                                </button>
-                                            </div>
+                            <!--  Modal starting -->
+                            <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Create PG Hostel Name</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <form method="post" class="form-horizontal">
                                             <div class="modal-body">
-                                                <p>One fine body…</p>
+
+
+                                                <!-- form start -->
+
+                                                <div class="card-body">
+                                                    <div class="form-group row">
+                                                        <label for="inputEmail3" class="col-sm-12 col-md-12 col-form-label">PG Hostel Name:</label>
+                                                        <div class="col-sm-12 col-md-12">
+                                                            <input type="text" class="form-control" name="PG_Hostel_Name" id="PG_Hostel_Name" placeholder="Enter Your PG Hostel Name" autofocus>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                             <div class="modal-footer justify-content-between">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                <!-- <button type="submit" class="btn btn-primary float-right" data-toggle="modal" data-target="#modal-default">Create PG</button> -->
+                                                <button name="submit" class="btn btn-primary float-right" data-toggle="modal" data-target="#modal-default">Create PG</button>
                                             </div>
-                                        </div>
-                                        <!-- /.modal-content -->
+                                        </form>
                                     </div>
-                                    <!-- /.modal-dialog -->
+                                    <!-- /.modal-content -->
                                 </div>
-                                <!--  Modal Ending -->
-
-
-                                <!-- form start -->
-                                <form method="post" class="form-horizontal">
-                                    <div class="card-body">
-                                        <div class="form-group row">
-                                            <label for="inputEmail3" class="col-sm-3 col-md-2 col-form-label">PG Hostel Name:</label>
-                                            <div class="col-sm-9 col-md-10">
-                                                <input type="text" class="form-control" name="PG_Hostel_Name" id="PG_Hostel_Name" placeholder="Enter Your PG Hostel Name" autofocus>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.card-body -->
-                                    <div class="card-footer">
-                                        <!-- <button type="submit" class="btn btn-info">Sign in</button> -->
-                                        <button name="submit" class="btn btn-primary float-right" data-toggle="modal" data-target="#modal-default">Create PG</button>
-                                    </div>
-                                    <!-- /.card-footer -->
-                                </form>
+                                <!-- /.modal-dialog -->
                             </div>
-                            <!-- /.card -->
+                            <!--  Modal Ending -->
 
                         </div>
                         <!--/.col (left) -->
@@ -121,13 +109,13 @@ if (isset($_REQUEST['submit'])) {
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">PG Hostel List</h3>
-                            <button type="submit" name="submit" class="btn btn-primary float-right">Create PG</button>
+                            <button type="submit" name="submit" class="btn bg-gradient-primary float-right" data-toggle="modal" data-target="#modal-default">Create PG</button>
+
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">    
                                 <div class="row">
-
 
                                 </div>
                                 <div class="row">
